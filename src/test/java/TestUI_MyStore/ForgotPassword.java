@@ -1,4 +1,4 @@
-package Dresses;
+package TestUI_MyStore;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -44,5 +44,3 @@ public class ForgotPassword {
 		
 	}	
 }
-	
-	

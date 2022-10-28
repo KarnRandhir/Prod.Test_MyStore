@@ -1,4 +1,4 @@
-package Dresses;
+package TestUI_MyStore;
 
 import java.util.concurrent.TimeUnit;
 
@@ -143,8 +143,6 @@ public class Registration {
 				
 				WebElement RegBtn = driver.findElement(By.id("submitAccount"));
 				RegBtn.click();
-				
-		
 	}
 
 }

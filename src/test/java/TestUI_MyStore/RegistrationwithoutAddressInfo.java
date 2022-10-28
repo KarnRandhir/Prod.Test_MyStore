@@ -1,4 +1,4 @@
-package Dresses;
+package TestUI_MyStore;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class RegistrationwithoutAddressInformation {
+public class RegistrationwithoutAddressInfo {
 
 
 		@SuppressWarnings("deprecation")
@@ -114,3 +114,4 @@ public class RegistrationwithoutAddressInformation {
 	}
 
 }
+

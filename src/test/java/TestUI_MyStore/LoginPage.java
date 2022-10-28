@@ -1,6 +1,4 @@
-package Dresses;
-
-
+package TestUI_MyStore;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -40,9 +38,8 @@ public class LoginPage {
 			Thread.sleep(1000);
 			
 			WebElement SignBttn = driver.findElement(By.id("SubmitLogin"));
-			SignBttn.click();
-			
-			
+			SignBttn.click();		
 	}
 
 }
+
