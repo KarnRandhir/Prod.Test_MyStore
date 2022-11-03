@@ -12,7 +12,7 @@ public class IndexPageTest extends BaseClass {
 
 	@BeforeMethod
 	public void setup() {
-		launchApp(null);
+		launchApp();
 	}
 
 	@AfterMethod

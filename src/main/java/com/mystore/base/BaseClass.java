@@ -21,9 +21,8 @@ public class BaseClass {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					System.getProperty("user.dir") + "\\Configuration\\config.properties");
+					System.getProperty("user.dir") + "\\Configuration\\Config.properties");
 			prop.load(ip);
-
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -31,20 +30,20 @@ public class BaseClass {
 		}
 	}
 
-	public void launchApp(String browserName) {
+	public static void launchApp() {
 		WebDriverManager.chromedriver().setup();
-		String browserName1 = prop.getProperty("browser");
+		String browserName = prop.getProperty("browser");
 
-		if (browserName1.contains("Chrome")) {
+		if (browserName.equalsIgnoreCase("Chrome")) {
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if (browserName1.contains("FireFox")) {
+		} else if (browserName.equalsIgnoreCase("FireFox")){
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-		} else if (browserName1.contains("IE")) {
-			driver = new InternetExplorerDriver();
 		}
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
-		Action.pageLoadtimeOut(driver, 30);
+		Action.pageLoadTimeOut(driver, 30);
 		driver.get(prop.getProperty("url"));
 	}
 }
