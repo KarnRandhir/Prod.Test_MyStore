@@ -26,4 +26,9 @@ public class HomePage extends BaseClass {
 	public boolean validateMyWishList() throws Throwable {
 		return Action.isDisplayed(driver, myWishList);
 	}
+	
+	public String getCurrURL() {
+		String homePageURL = driver.getCurrentUrl();
+		return homePageURL;
+	}
 }

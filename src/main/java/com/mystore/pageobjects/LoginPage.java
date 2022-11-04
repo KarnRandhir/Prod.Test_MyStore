@@ -28,7 +28,7 @@ public class LoginPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage login(String uname, String pswd, HomePage homePage) throws Throwable {
+	public HomePage login(String uname, String pswd) throws Throwable {
 		Action.type(userName, uname);
 		Action.type(password, pswd);
 		Action.click(driver, signInBtn);
