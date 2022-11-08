@@ -8,14 +8,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import com.mystore.actiondriver.Action;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
+	protected static ThreadLocal<ChromeDriver> driver1 = new ThreadLocal<>();
 	public static Properties prop;
 	public static WebDriver driver;
-
+	
 	@BeforeTest
 	public void loadConfig() {
 		try {
@@ -46,4 +48,15 @@ public class BaseClass {
 		Action.pageLoadTimeOut(driver, 30);
 		driver.get(prop.getProperty("url"));
 	}
+	
+	public WebDriver getDriver() {
+		return driver1.get();
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		getDriver().quit();
+	}
+	
+	
 }
