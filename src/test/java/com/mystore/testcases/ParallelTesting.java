@@ -1,7 +1,6 @@
 package com.mystore.testcases;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,9 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.mystore.base.BaseClass;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ParallelTesting extends BaseClass {
@@ -35,44 +32,27 @@ public class ParallelTesting extends BaseClass {
 		System.out.println("Result Actual - " + actual_error + " Expected - " + expected_error);
 		softassert.assertEquals(actual_error, expected_error, "Error Msg Verification");
 		// Login
-
 		WebElement SignBtn = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
 		SignBtn.click();
-		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,300)");
-
 		WebElement EmlBtn = driver.findElement(By.id("email"));
 		EmlBtn.click();
-		Thread.sleep(1000);
 		EmlBtn.sendKeys("randhirall20@gmail.com");
-		Thread.sleep(1000);
-
 		WebElement PwdBtn = driver.findElement(By.id("passwd"));
 		PwdBtn.click();
 		PwdBtn.sendKeys("automation");
-		Thread.sleep(1000);
-
 		WebElement SignBttn = driver.findElement(By.id("SubmitLogin"));
 		SignBttn.click();
-		Thread.sleep(1000);
-
 		WebElement LdBtn = driver.findElement(By.xpath("//*[@id=\"header_logo\"]/a/img"));
 		LdBtn.click();
-		Thread.sleep(2000);
-
 		WebElement DrssBtn = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a"));
 		DrssBtn.click();
-		Thread.sleep(2000);
-
 		WebElement CslDrss = driver.findElement(By.xpath("//*[@id=\"subcategories\"]/ul/li[2]/h5/a"));
 		CslDrss.click();
-		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,700)");
 		WebElement ele = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]/img"));
-
 		// Creating object of an Actions class
 		Actions action = new Actions(driver);
-
 		// Performing the mouse hover action on the target element.
 		action.moveToElement(ele).perform();
 		WebElement AdCrt = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/div[2]/a[1]/span"));
@@ -100,7 +80,6 @@ public class ParallelTesting extends BaseClass {
 		driver.get(URL);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
-
 		// Click on Sign in
 		driver.findElement(By.linkText("Sign in")).click();
 		// Login
@@ -109,29 +88,23 @@ public class ParallelTesting extends BaseClass {
 		driver.findElement(By.id("SubmitLogin")).click();
 		// Click on Women
 		driver.findElement(By.linkText("WOMEN")).click();
-
 		WebElement SecondImg = driver
 				.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div[2]/ul/li[2]/div/div[1]/div/a[1]/img"));
 		WebElement MoreBtn = driver.findElement(
 				By.xpath("/html/body[1]/div[1]/div[2]/div[1]/div[3]/div[2]/ul/li[2]/div[1]/div[2]/div[2]/a[2]"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(SecondImg).moveToElement(MoreBtn).click().perform();
-
 		// Change quantity by 2
 		driver.findElement(By.id("quantity_wanted")).clear();
 		driver.findElement(By.id("quantity_wanted")).sendKeys("2");
-
 		// Select size as L
 		WebElement Sizedrpdwn = driver.findElement(By.xpath("//*[@id='group_1']"));
 		Select oSelect = new Select(Sizedrpdwn);
 		oSelect.selectByVisibleText("M");
-
 		// Select Color
 		driver.findElement(By.id("color_11")).click();
-
 		// Click on add to cart
 		driver.findElement(By.xpath("//p[@id='add_to_cart']//span[.='Add to cart']")).click();
-
 		// Click on proceed
 		driver.findElement(By.xpath("/html//div[@id='layer_cart']//a[@title='Proceed to checkout']/span")).click();
 		// Checkout page Proceed
@@ -140,7 +113,6 @@ public class ParallelTesting extends BaseClass {
 		// Agree terms&Conditions
 		driver.findElement(By.xpath("//*[@id=\"cgv\"]")).click();
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/form/p/button/span")).click();
-
 		// Click on Payby Check
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/div[3]/div[2]/div/p/a")).click();
 		// Confirm the order
@@ -156,7 +128,5 @@ public class ParallelTesting extends BaseClass {
 		} else {
 			System.out.println("Order Not Successfull: Test Case Failed");
 		}
-
 	}
 }
-
